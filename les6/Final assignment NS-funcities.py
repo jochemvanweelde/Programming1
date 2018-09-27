@@ -20,6 +20,12 @@ def ritprijs(leeftijd, weekendrit, afstandKM):
         else:
             prijs = bedrag
     return prijs
-
-
-print(float(ritprijs(20, False, 50)))
+jaar = int(input("Hoe oud ben jij?:"))
+weekend = input("Rij jij in het weekend? (ja/nee)")
+if weekend == 'ja':
+    weekend == True
+else:
+    weekend == False
+kilometer = int(input("Hoeveel kilometer is de reis?:"))
+prijsRit = float(ritprijs(jaar, weekend, kilometer))
+print("De reis kost voor jou precies ", prijsRit, " Euro!")
