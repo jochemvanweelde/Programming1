@@ -25,19 +25,19 @@ while codeAan == True:
         print("4: Ik geef mijn kluis teruggeven")
         print("5: Annuleren en het programma stoppen")
         print("==================================================================")
-        menuCijfer = int(input("Wat wilt u doen?:"))
-        if menuCijfer < 1 or menuCijfer > 5:  # dit zorgt ervoor dat er een ERROR gegeven word als je een nummer die niet in het menu staat invoert
-            print("ERROR: Geen geldig menu nummer.\nProbeer de nummers 1 tot en met 4")
-        elif menuCijfer == 1:  # optie 1
+        menuCijfer = str(input("Wat wilt u doen?:"))
+        if menuCijfer == '1':  # optie 1
             toon_aantal_kluizen_vrij()
-        elif menuCijfer == 2:  # optie 2
+        elif menuCijfer == '2':  # optie 2
             nieuwe_kluis()
-        elif menuCijfer == 3:  # optie 3
+        elif menuCijfer == '3':  # optie 3
             kluis_openen()
-        elif menuCijfer == 4:  # optie 4
+        elif menuCijfer == '4':  # optie 4
             kluis_teruggeven()
-        else:  # optie 5
+        elif menuCijfer == '5':  # optie 5
             annuleren()
+        else:  # optie 5
+            print(menuCijfer, "is geen geldige input. Probeer de cijfers 1 tot en met 5 in te vullen")
 
 
     def toon_aantal_kluizen_vrij():
@@ -84,9 +84,8 @@ while codeAan == True:
                 print("Gelukt! Uw kluis gaat nu open.")
                 print("Je wachtwoord blijft opgeslagen en de kluis gaat op slot wanneer u de deur sluit")
                 break
-            elif nummer >= 12:
-                print(
-                    "Dat lijkt niet te kloppen! Misschien heeft u het verkeerde wachtwoord of kluisnummer ingevoerd. Probeer het nog een keer")
+            elif nummer == (len(kluizenBestandList) - 1):
+                print("Dat lijkt niet te kloppen! Misschien heeft u het verkeerde wachtwoord of kluisnummer ingevoerd. Probeer het nog een keer")
 
 
     def kluis_teruggeven():
@@ -109,5 +108,7 @@ while codeAan == True:
 
 
     remove_empty_lines('kluizen.txt')
+    print("Moment geduld\n\n\n")
+    time.sleep(5)
     menu()
     infile.close()
