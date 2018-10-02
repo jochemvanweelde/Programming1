@@ -1,12 +1,10 @@
 import os
 import sys
 import time
-infile = open('kluizen.txt', 'w+')
-infile.write("Dit is een test")
 kluizenAlle = 12  # Dit zijn alle kluizen die beschikbaar zijn
 codeAan = True
 while codeAan == True:
-
+    infile = open('kluizen.txt', 'r+')
     def remove_empty_lines(filename):  # deze hele def is van het internet gehaalt en verwijdert lege regels.
         if not os.path.isfile(filename):
             print("{} does not exist ".format(filename))
@@ -58,8 +56,6 @@ while codeAan == True:
         kluisNummer = 0
         for nummerCheck in kluizenBestandList:
             kluisNummer = kluisNummer + 1
-            print(kluisNummer)
-            print(nummerCheck)
             if nummerCheck != kluisNummer and kluisNummer <= kluizenAlle:
                 print("Kluis", kluisNummer, "is beschikbaar!")
                 wachtwoord = str(input("Geef een wachtwoord op, onthoud deze goed!:"))
@@ -111,5 +107,7 @@ while codeAan == True:
     def annuleren():
         sys.exit()
 
-    nieuwe_kluis()
-infile.close()
+
+    remove_empty_lines('kluizen.txt')
+    menu()
+    infile.close()
