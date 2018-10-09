@@ -2,9 +2,8 @@ import os
 import sys
 import time
 kluizenAlle = 12  # Dit zijn alle kluizen die beschikbaar zijn
-codeAan = True
-while codeAan == True:
-    infile = open('kluizen.txt', 'r+')
+while True: #Dit is een ongeindige loop. Als er in het menu de toets 5 word ingedrukt wordt het programma gestopt met sys
+    infile = open('kluizen.txt', 'r+') #Elke keer als het programma begint wordt het bestand opnieuw geopend.
     def remove_empty_lines(filename):  # deze hele def is van het internet gehaalt en verwijdert lege regels.
         if not os.path.isfile(filename):
             print("{} does not exist ".format(filename))
@@ -42,7 +41,7 @@ while codeAan == True:
 
     def toon_aantal_kluizen_vrij():
         kluizenBezet = sum(1 for line in open('kluizen.txt'))
-        kluizenVrij = kluizenAlle - kluizenBezet + 1  # Omdat er een dertiende kluis is. Anders werkt mijn code niet
+        kluizenVrij = kluizenAlle - kluizenBezet  #het verschil is gelijk aan hoeveel kluizen er nog beschikbaar zijn
         print("Er zijn in totaal nog", kluizenVrij, "kluizen vrij")
 
 
@@ -99,7 +98,7 @@ while codeAan == True:
                 infile.write(nummer)
             else:
                 print("Gelukt!")
-        infile.write('\n\n\n')
+        infile.write('\n\n\n') #Als de laatste kluis in de lijst wordt teruggevraagd zorgen de enters het voor dat die ook echt weg gaat.
         remove_empty_lines('kluizen.txt')
 
 
@@ -111,4 +110,4 @@ while codeAan == True:
     print("Moment geduld\n\n\n")
     time.sleep(5)
     menu()
-    infile.close()
+    infile.close() #Het bestand word gesloten en alle wijzigingen zij dan te zien in de file.
